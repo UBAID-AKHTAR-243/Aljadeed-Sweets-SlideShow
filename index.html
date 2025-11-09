@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubaid Shoes Store - Slideshow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #f40103; /* Coca-Cola Red */
+            --secondary: #8B0000; /* Dark Red */
+            --accent: #D4AF37; /* Gold accent */
+            --light: #f8f8f8;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: white;
+            line-height: 1.6;
+/*سلائیڈ شو کا سائز چھوٹا ہوتا ہے اس سے*/
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color:offwhite;
+            font-size: 2.99rem;
+        }
+
+
+
+
+
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 30px;
+        }
+
+        
+
+
+.slide-title-1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+.slide-title-2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+.slide-title-3 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+.slide-title-4 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+.slide-title-5 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+
+        .slide-description {
+            margin-bottom: 10%;
+            margin-right: 10%;
+            font-size: 1.1rem;
+            text-align: right;
+            max-width: 5%;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-price {
+        text-align:left;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-top: 10px;
+        }
+
+        /* Navigation Buttons */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+     
+        .prev:hover, .next:hover 
+        
+        
+        {
+          background-color: var(--primary);
+        }
+
+        .prev {
+            left: 0px;
+            color:green;
+            padding:0px;
+        }
+
+        .next {
+            right: 0px;
+            color:green;
+        }
+
+        /* Dots Indicator */
+        .dots-container {
+            text-align: center;
+            padding: 20px;
+            font-size: 9px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background-color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: blue;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .slide-image {
+                height: 400px;
+            }
+            
+
+            
+            .slide-description {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+            
+            .prev, .next {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .slide-image {
+                height: 300px;
+            }
+            
+            .slide-content {
+                padding: 20px;
+            }
+            
+             h2 {
+                font-size: 1.3rem;
+            }
+            
+      h3 {
+         font-size: 1.8rem;
+         text-align: center;
+       }      
+            
+            .gugu {color:black;}
+            .puppoo {font-size:120px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>الجدید سویٹس</h1>
+        <h3>اینڈ بیکرز</h3>
+        <div class="gugu">
+      <!-- یہ کوڈ انڈیکیٹر بناتا ہے -->
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    </div>
+
+        
+        <div class="slideshow-container">
+            <div class="slides">
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <img src="data-1.jpeg" alt="Classic White Sneakers" class="slide-image">
+                    <div class="slide-content">
+                        <h2 class="slide-title-1">حافظ عامر کی برفی</h2>
+                        <p class="slide-description"> شوگر فری 🔵</br></br>تازہ دودھ سے تیار کردہ 🔵</p>
+                        <div class="slide-price">Rs. 1200 </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="data-2.jpeg" alt="Running Shoes" class="slide-image">
+                    <div class="slide-content">
+                        <h2 class="slide-title-2">دیسی گھی کے لڈو</h2>
+                        <p class="slide-description">
+                            موتی چور لڈو 🔵 </br></br> بیسن سے تیار کردہ 🔵</p>
+                        <div class="slide-price">Rs. 1000</div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img src="data-3.jpeg" alt="Formal Leather Shoes" class="slide-image">
+                    <div class="slide-content">
+                        <h2 class="slide-title-3">
+                         آلو کے چپس</h2>
+                        <p class="slide-description"> 
+                             تازہ آلو 🔵</br ></br> روزانہ تازہ آئل 🔵</p>
+                        <div class="slide-price">Rs. 600</div>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 -->
+                <div class="slide">
+                    <img src="data-4.jpeg" alt="Casual Slip-Ons" class="slide-image">
+                    <div class="slide-content">
+                        <h2 class="slide-title-4">برگر</h2>
+                        <p class="slide-description"> 🍰 🥧 تازہ ڈبل روٹی  🔵</br></br> 🥚 🥚 دیسی انڈوں سے  تیار کرد 🔵 </p>
+                        <div class="slide-price">Rs. 100</div>
+                    </div>
+                </div>
+                
+                <!-- Slide 5 -->
+                <div class="slide">
+                    <img src="data-5.jpeg" alt="Basketball Shoes" class="slide-image">
+                    <div class="slide-content">
+                        <h2 class="slide-title-5">(قیمہ والے)سموسے</h2>
+                        <p class="slide-description"> بڑا سائز 🔵  </br></br> گرم اور کرارے 🔵 </p>
+                        <div class="slide-price">Rs. 60</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation buttons -->
+           <button class="prev">&#10094;</button>
+            <button class="next">&#10095;
+                            <button>                      
+        </div>
+  <div class="gugu">  &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+    &#10095;
+</div>
+        
+        <!-- Dots indicator -->
+        <div class="dots-container">
+            <span class="dot active" data-slide="0">1</span>
+            <span class="dot" data-slide="1">2</span>
+            <span class="dot" data-slide="2">3</span>
+            <span class="dot" data-slide="3">4</span>
+            <span class="dot" data-slide="4">5</span>
+        </div>
+    </div>
+  
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelector('.slides');
+            const slideItems = document.querySelectorAll('.slide');
+           const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            
+           const dots = document.querySelectorAll('.dot');
+            
+            let currentSlide = 0;
+            const totalSlides = slideItems.length;
+            
+            // Initialize slideshow
+            function initSlideshow() {
+                updateSlideshow();
+                
+                // Auto advance slides every 8 seconds
+                setInterval(() => {
+                    nextSlide();
+                }, 5000);
+            }
+            
+            // Update slideshow display
+            function updateSlideshow() {
+                slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update active dot
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+            
+            // Go to next slide
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlideshow();
+            }
+            
+            // Go to previous slide
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlideshow();
+            }
+            
+            // Go to specific slide
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateSlideshow();
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-slide'));
+                    goToSlide(slideIndex);
+                });
+            });
+            
+            // Initialize the slideshow
+            initSlideshow();
+        });
+    </script>
+</body>
+</html>
