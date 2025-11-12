@@ -3,7 +3,7 @@
    GLOBAL STYLES
 =========================== */
 
-select {
+.select {
   appearance: none; /* removes browser default arrow */
   -webkit-appearance: none;
   -moz-appearance: none;
