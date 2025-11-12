@@ -2,6 +2,25 @@
 /* ===========================
    GLOBAL STYLES
 =========================== */
+
+select {
+  appearance: none; /* removes browser default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: white;
+  border: 1px solid red;
+  padding: 10px;
+  width: 150px;
+  background-image: linear-gradient(45deg, transparent 50%, black 50%),
+                    linear-gradient(135deg, black 50%, transparent 50%);
+  background-position: calc(100% - 15px) center, calc(100% - 10px) center;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+  
+
+
 * {
   margin: 0;
   padding: 0;
