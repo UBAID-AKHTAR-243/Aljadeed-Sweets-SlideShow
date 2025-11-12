@@ -2,7 +2,6 @@
 /* ===========================
    GLOBAL STYLES
 =========================== */
-
 select {
   appearance: none; /* removes browser default arrow */
   -webkit-appearance: none;
@@ -17,6 +16,7 @@ select {
   background-size: 5px 5px;
   background-repeat: no-repeat;
 }
+
 
   
 
