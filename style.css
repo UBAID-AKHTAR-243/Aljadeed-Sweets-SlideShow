@@ -31,7 +31,7 @@
     font-weight: 600;
     padding: 8px 20px;
     border: none;
-    border-radius: 10px; /* Rounded pill shape */
+    border-radius: 5px; /* Rounded pill shape */
     cursor: pointer;
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
