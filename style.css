@@ -23,7 +23,45 @@
             --warning: #f39c12;
         }
 
-         button  {background-color: #1018a5;}  
+         /* Basic button styling */
+.sign-in-btn {
+    background: linear-gradient(90deg, #4b6cb7, #182848); /* Modern gradient */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px; /* Rounded pill shape */
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover effect */
+.sign-in-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+}
+
+/* Animated ripple effect on click */
+.sign-in-btn:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: rgba(255,255,255,0.3);
+    transform: skewX(-45deg);
+    transition: all 0.5s;
+}
+
+.sign-in-btn:hover:after {
+    left: 200%;
+}
+
 
         body {
             background-color: var(--primary);
