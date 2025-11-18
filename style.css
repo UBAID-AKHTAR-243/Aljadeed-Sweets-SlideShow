@@ -23,6 +23,8 @@
             --warning: #f39c12;
         }
 
+         button  {background-color: #1018a5;}  
+
         body {
             background-color: var(--primary);
             color: white;
